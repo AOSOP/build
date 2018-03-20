@@ -171,6 +171,7 @@ include $(BUILD_SYSTEM)/device.mk
 # A AOSP Optimized build needs only the Optimized product makefiles.
 ifneq ($(OPTIMIZED_BUILD),)
   all_product_configs := $(shell find device -path "*/$(OPTIMIZED_BUILD)/optimized.mk")
+  all_product_configs += $(wildcard vendor/aosop/build/target/product/optimized_$(OPTIMIZED_BUILD).mk)
 else
   ifneq ($(strip $(TARGET_BUILD_APPS)),)
   # An unbundled app build needs only the core product makefiles.
